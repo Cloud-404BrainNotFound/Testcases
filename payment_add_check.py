@@ -1,56 +1,40 @@
 import requests
 
-url = 'http://54.83.149.21:8003/payments/add_payment'
-local = 0
+url = 'http://54.83.149.21:8002/payments/add_payment'
+local = 1
 if local:
-    url = 'http://localhost:8000/payments/add_payment'
+    url = 'http://localhost:8002/payments/add_payment'
 else:
     url = 'http://34.203.249.254:8002/payments/add_payment'
 data = {
-    "user_id": "123456",
-    "order_id": "abc125553",
-    "amount": 100.0,
-    "currency": "USD",
-    "status": "PENDING",# 使用枚举中的值: "PENDING", "COMPLETED", "FAILED"
-    "method": "CREDIT_CARD",# 使用枚举中的值: "CREDIT_CARD", "DEBIT_CARD", "PAYPAL"
-    "transaction_id": "trans001"
+    "card_number": "4111111111111111",
+    "expiry_month": "12",
+    "expiry_year": "25",
+    "cvc": "123",
+    "status": "PENDING"  # Status is an enum: "PENDING", "COMPLETED", "FAILED"
 }
 response = requests.post(url, json=data)
 print(response.text)
 
 data = {
-    "user_id": "123456",
-    "order_id": "abc3223",
-    "amount": 100.0,
-    "currency": "USD",
-    "status": "PENDING",
-    "method": "CREDIT_CARD",
-    "transaction_id": "trans001"
+    "card_number": "4222222222222222",
+    "expiry_month": "11",
+    "expiry_year": "24",
+    "cvc": "456",
+    "status": "COMPLETED"
 }
 response = requests.post(url, json=data)
 print(response.text)
 
 data = {
-    "user_id": "565555",
-    "order_id": "abc123",
-    "amount": 100.0,
-    "currency": "USD",
-    "status": "PENDING",
-    "method": "CREDIT_CARD",
-    "transaction_id": "trans001"
+    "card_number": "4333333333333333",
+    "expiry_month": "10",
+    "expiry_year": "23",
+    "cvc": "789",
+    "status": "FAILED"
 }
+
 response = requests.post(url, json=data)
 print(response.text)
 
-data = {
-    "user_id": "123456",
-    "order_id": "abc1213323",
-    "amount": 100.0,
-    "currency": "USD",
-    "status": "PENDING",
-    "method": "CREDIT_CARD",
-    "transaction_id": "trans001"
-}
-response = requests.post(url, json=data)
-print(response.text)
 
