@@ -1,11 +1,11 @@
 import requests
 
 url = 'http://54.83.149.21:8002/payments/add_payment'
-local = 1
+local = 0
 if local:
     url = 'http://localhost:8002/payments/add_payment'
 else:
-    url = 'http://34.203.249.254:8002/payments/add_payment'
+    url = 'http://54.237.161.55:8002/payments/add_payment'
 data = {
     "card_number": "4111111111111111",
     "expiry_month": "12",

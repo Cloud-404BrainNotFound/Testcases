@@ -1,11 +1,11 @@
 import requests
 from datetime import datetime
 
-local = 1
+local = 0
 if local:
     url = 'http://localhost:8004/orders/order_stringing'
 else:
-    url = 'http://34.203.249.254:8004/orders/order_stringing'
+    url = 'http://54.237.161.55:8004/orders/order_stringing'
 
 # Data to test the /order_stringing endpoint
 data = {
@@ -27,15 +27,15 @@ print(response.json())
 
 # Additional tests for validation errors or variations
 # For example, missing required fields
-invalid_data = {
-    "sport": "Tennis",
-    "racket_model": "",  # Invalid, missing racket model
-    "string": "Luxilon ALU Power",
-    "tension": "55",
-    "pickup_date": datetime.utcnow().isoformat(),
-    "price": 20.00
-}
+# invalid_data = {
+#     "sport": "Tennis",
+#     "racket_model": "",  # Invalid, missing racket model
+#     "string": "Luxilon ALU Power",
+#     "tension": "55",
+#     "pickup_date": datetime.utcnow().isoformat(),
+#     "price": 20.00
+# }
 
-response = requests.post(url, json=invalid_data)
-print("Invalid data status code:", response.status_code)
-print("Invalid data response:", response.json())
+# response = requests.post(url, json=invalid_data)
+# print("Invalid data status code:", response.status_code)
+# print("Invalid data response:", response.json())

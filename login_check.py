@@ -1,10 +1,10 @@
 import requests
 
-local = 1
+local = 0
 if local:
     url = 'http://localhost:8001/users/login'
 else:
-    url = 'http://34.203.249.254:8001/users/login'
+    url = 'http://54.237.161.55:8001/users/login'
 
 data = {
     "email": "123242155@example.com",
