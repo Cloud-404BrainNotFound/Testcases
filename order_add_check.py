@@ -1,7 +1,7 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 
-local = 0
+local = 1
 if local:
     url = 'http://localhost:8004/orders/order_stringing'
 else:
@@ -13,7 +13,7 @@ data = {
     "racket_model": "Wilson Pro Staff",
     "string": "Luxilon ALU Power",
     "tension": "55",  # String tension
-    "pickup_date": datetime.utcnow().isoformat(),  # Current time in ISO format
+    "pickup_date": datetime.now(timezone.utc).isoformat(),  # Current time in ISO format
     "notes": "Please string at 55 lbs",
     "price": 20.00  # Price for stringing
 }
