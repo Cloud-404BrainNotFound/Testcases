@@ -2,9 +2,9 @@ import requests
 
 local = 1
 if local:
-    url = 'http://localhost:8004/orders'
+    url = 'http://localhost:8004/'
 else:
-    url = 'http://54.237.161.55:8004/orders'
+    url = 'http://54.237.161.55:8004/'
 
 # Test pagination with query parameters (e.g., limit and skip)
 params = {

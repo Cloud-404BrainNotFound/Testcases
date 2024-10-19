@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 local = 1
 if local:
@@ -13,7 +13,7 @@ data = {
     "racket_model": "Wilson Pro Staff",
     "string": "Luxilon ALU Power",
     "tension": "55",  # String tension
-    "pickup_date": datetime.now(timezone.utc).isoformat(),  # Current time in ISO format
+    "pickup_date": (datetime.now(timezone.utc) + timedelta(days=1)).isoformat(),  # Future date
     "notes": "Please string at 55 lbs",
     "price": 20.00  # Price for stringing
 }
